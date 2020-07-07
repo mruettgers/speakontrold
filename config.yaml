@@ -1,0 +1,35 @@
+snapcast:
+  host: 10.4.32.240
+  id: mobile_1
+  stream:
+    default: "Alexa Kueche"
+  volume:
+    default: 10
+    min: 0
+    max: 100
+
+pulseaudio:
+  sink-inputs:
+    line_in:
+      local: line-in-local
+
+systemd:
+  units:
+    line_in:
+      local: pulseaudio-line-in-local.service
+      stream: pulseaudio-line-in-stream.service
+
+rotary_encoder:
+  volume:
+    pins:
+      CLK: 10
+      BT: 9
+
+switch:
+  line_in_local:
+    pin: 14
+  line_in_stream:
+    pin: 15
+  switch_snapcast_stream:
+    pin: 11
+  
